@@ -15,9 +15,10 @@ GameObject:
   - component: {fileID: -5227148063291631827}
   - component: {fileID: 2417137750908569292}
   - component: {fileID: 9209930362822814417}
+  - component: {fileID: -7804593551655152374}
   m_Layer: 3
   m_Name: E
-  m_TagString: E
+  m_TagString: InteractionObject
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -234,3 +235,15 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   interactable: {fileID: 0}
+--- !u!114 &-7804593551655152374
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1916626152006006}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ca1ae332cfc23164fb8bc02a4f4aadee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

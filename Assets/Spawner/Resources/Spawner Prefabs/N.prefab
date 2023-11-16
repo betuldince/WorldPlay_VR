@@ -15,6 +15,8 @@ GameObject:
   - component: {fileID: 177007067246259532}
   - component: {fileID: 1392188331141911374}
   - component: {fileID: 7020384240067516800}
+  - component: {fileID: 2750876284175375136}
+  - component: {fileID: -4656276208936915238}
   m_Layer: 0
   m_Name: N
   m_TagString: InteractionObject
@@ -214,7 +216,19 @@ MonoBehaviour:
   restoreOriginalParent: 0
   onPickUp:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2750876284175375136}
+        m_TargetAssemblyTypeName: InteractionController, Assembly-CSharp
+        m_MethodName: onHeld
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   onDetachFromHand:
     m_PersistentCalls:
       m_Calls: []
@@ -232,5 +246,29 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e36cc28761d1c474493e478de76019fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &2750876284175375136
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1582486310918696}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ca1ae332cfc23164fb8bc02a4f4aadee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &-4656276208936915238
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1582486310918696}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ca1ae332cfc23164fb8bc02a4f4aadee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

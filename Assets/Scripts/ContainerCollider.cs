@@ -66,7 +66,9 @@ public class ContainerCollider : MonoBehaviour {
 
         if (collisionObject.Equals(gameObjectTag))
         {
+            
             //clean code in if (collisionObject.Equals(gameObjectTag))
+            /* RE-ACTIVATE THIS PART!!!!!!!!!!!!!!!!!!!!!!!!
             Score si = Score.getInstance();
             si.incrementCurrRoundScore();
             si.displayPoints();
@@ -77,11 +79,11 @@ public class ContainerCollider : MonoBehaviour {
             containerAudio.clip = win;
             containerAudio.Play();
             Debug.Log("Play Win");
-
+            */
             Transform solutionObject = gameObject.transform;
 
             // Debug.Log("Child!");
-
+            Debug.Log("HEYY");
             solutionObject.GetChild(5).gameObject.SetActive(true);
             Debug.Log("Count :" + solutionObject.childCount);
 

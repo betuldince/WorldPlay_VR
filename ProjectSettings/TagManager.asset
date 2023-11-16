@@ -36,6 +36,10 @@ TagManager:
   - X
   - Y
   - Z
+  - digit
+  - winChar
+  - ScoreDigit
+  - ScoreChar
   layers:
   - Default
   - TransparentFX

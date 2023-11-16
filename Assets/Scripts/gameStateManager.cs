@@ -81,13 +81,18 @@ public class gameStateManager : MonoBehaviour {
     /// handler starts with -1, if gameStateContainer.state value is higher, means game has started or progressed. 
     /// </summary>
     int handler = -1;
-	
-	/// Update is called once per frame
-	void Update () {
+
+    private void Start()
+    {
+        gameStateContainer.state = 0; // WILL BE CHANGED
+    }
+
+    /// Update is called once per frame
+    void Update () {
         
         if (handler < gameStateContainer.state)
         {   ///Handling game start.
-            gameStateContainer.state = 0;
+           
             if (gameStateContainer.state == 0)
             {   ///Start the game (container box generation and spawner).
                 GameObject.Find("ContainerBox").GetComponent<ContainerGenerator>().start = true;

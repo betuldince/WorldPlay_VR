@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: -8644623180095783646}
   - component: {fileID: -67382598265931045}
   - component: {fileID: -7523095440416996055}
+  - component: {fileID: -8091668957730432892}
   m_Layer: 0
   m_Name: R
   m_TagString: InteractionObject
@@ -232,5 +233,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e36cc28761d1c474493e478de76019fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &-8091668957730432892
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1811564717615114}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ca1ae332cfc23164fb8bc02a4f4aadee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

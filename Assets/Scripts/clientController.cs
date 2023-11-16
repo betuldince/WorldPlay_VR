@@ -274,7 +274,7 @@ public class clientController : MonoBehaviour {
                 msg.input[i] = "SWINGDANCE";
                 msg.AlphabetsFaceUser[i] = true;
                 msg.spin[i] = true;
-                msg.repeatSolution[i] =true;
+                msg.repeatSolution[i] =false;
                 msg.Difficulty[i] = 1;
                 msg.No_of_blanks[i] = 2;
                 msg.No_of_obstacles[i] = 2;
