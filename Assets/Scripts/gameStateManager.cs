@@ -84,7 +84,7 @@ public class gameStateManager : MonoBehaviour {
 
     private void Start()
     {
-        gameStateContainer.state = 0; // WILL BE CHANGED
+       // gameStateContainer.state = 0; // WILL BE CHANGED
     }
 
     /// Update is called once per frame

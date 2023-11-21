@@ -17,6 +17,7 @@ public class HintGenerator : MonoBehaviour
     string hintInput;
     string hintTag;
     public GameObject hintInst;
+     
     /// <summary>
     /// handled starts with -1, if gameStateContainer.state value is higher, means game has started or progressed. 
     /// </summary>
@@ -52,7 +53,30 @@ public class HintGenerator : MonoBehaviour
     public void createHint()
     {
 
-        hintInput = gameParametersContainer.gameParam.inputForHint.ToUpper();
+        string dump = "";
+        if (gameStateContainer.state == 0)
+        {
+            dump = "calibration";
+
+        }
+        else if (gameStateContainer.state == 1)
+        {
+            dump = "Adverbs of quantity";
+
+        }
+        else if (gameStateContainer.state == 2)
+        {
+            dump = "game";
+
+        }
+        else if (gameStateContainer.state == 3)
+        {
+            dump = "animal";
+
+        }
+
+        //hintInput = gameParametersContainer.gameParam.inputForHint.ToUpper(); // i changed this
+        hintInput = dump.ToUpper();
         Debug.Log("Hint: " + hintInput);
         length = hintInput.Length;
         if (gameParametersContainer.gameParam.calibration == 0 && gameStateContainer.state == 1)
@@ -259,6 +283,7 @@ public class HintGenerator : MonoBehaviour
 
 
                 tempObj = null;
+
             }
             count++;
         }

@@ -130,6 +130,8 @@ public class clientController : MonoBehaviour {
     ///The number used to send a IP update message to the WordplayVR-Remote Server.
     /// </summary>
     public static short MSG_GAME_PARAMETERS_IPU = 1012;
+
+     
     /// <summary>
     /// The server Discovery component, derived from NetworkDiscovery. 
     /// </summary>
@@ -143,6 +145,7 @@ public class clientController : MonoBehaviour {
     /// </summary>
     bool calibrationSaved = false;
 
+    private gameParameters msg;
     /// <summary>
     /// We destroy the current instance if we find a clientController already running. We need this to 
     /// prevent duplicates clientControllers being created when we restart the game as the old one is a 
@@ -156,7 +159,7 @@ public class clientController : MonoBehaviour {
             Destroy(gameObject);
         }
     }
-
+ 
     // Use this for initialization
     void Start() {
         /*
@@ -203,6 +206,8 @@ public class clientController : MonoBehaviour {
                 calibrationSaved = true;
             }
         }
+
+
     }
 
     /// <summary>
@@ -243,7 +248,7 @@ public class clientController : MonoBehaviour {
 
         // set gameParameters & gameParametersContainer manually
 
-        gameParameters msg = new gameParameters();
+         msg = new gameParameters();
         msg.count = 4;
         msg.input = new string[4];
         msg.SpawnInterval = new int[4];
@@ -253,6 +258,7 @@ public class clientController : MonoBehaviour {
         msg.Difficulty = new int[4];
         msg.No_of_blanks = new int[4];
         msg.No_of_obstacles = new int[4];
+        msg.inputForHint ="";
 
         for (int i = 0; i < 4; i++)
         {
@@ -267,22 +273,57 @@ public class clientController : MonoBehaviour {
                 msg.Difficulty[i] = 1;
                 msg.No_of_blanks[i] = 5;
                 msg.No_of_obstacles[i] = 0;
+                msg.FlyingSpeed = 50;
+                msg.RotationSpeed = 50;
+               
             }
-            else
+            else if(i ==1)
             {
                 msg.SpawnInterval[i] = 15; //should be get from the remote
-                msg.input[i] = "SWINGDANCE";
+                msg.input[i] = "several";
                 msg.AlphabetsFaceUser[i] = true;
                 msg.spin[i] = true;
                 msg.repeatSolution[i] =false;
                 msg.Difficulty[i] = 1;
                 msg.No_of_blanks[i] = 2;
                 msg.No_of_obstacles[i] = 2;
+                msg.FlyingSpeed = 50;
+                msg.RotationSpeed = 50;
+                
             }
+            else if (i == 2)
+            {
+                msg.SpawnInterval[i] = 15; //should be get from the remote
+                msg.input[i] = "soccer"; 
+                msg.AlphabetsFaceUser[i] = true;
+                msg.spin[i] = true;
+                msg.repeatSolution[i] = false;
+                msg.Difficulty[i] = 1;
+                msg.No_of_blanks[i] = 2;
+                msg.No_of_obstacles[i] = 2;
+                msg.FlyingSpeed = 50;
+                msg.RotationSpeed = 50;
+                
+            }
+            else if (i == 3)
+            {
+                msg.SpawnInterval[i] = 15; //should be get from the remote
+                msg.input[i] = "bird"; 
+                msg.AlphabetsFaceUser[i] = true;
+                msg.spin[i] = true;
+                msg.repeatSolution[i] = false;
+                msg.Difficulty[i] = 1;
+                msg.No_of_blanks[i] = 2;
+                msg.No_of_obstacles[i] = 2;
+                msg.FlyingSpeed = 50;
+                msg.RotationSpeed = 50;
+                
+            }
+
         }
-        msg.FlyingSpeed = 50;
-        msg.RotationSpeed = 50;
-        msg.inputForHint = "DANCE";
+
+
+ 
 
         List<int[]> bitMapSubString = new List<int[]>();
         for (int j = 0; j < 4; j++)
