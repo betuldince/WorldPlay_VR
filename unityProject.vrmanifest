@@ -5,7 +5,7 @@
       "app_key": "application.generated.unity.worldplayvr.exe",
       "launch_type": "url",
       "url": "steam://launch/",
-      "action_manifest_path": "C:\\Users\\Betul\\World-Play-VR\\Assets\\StreamingAssets\\SteamVR\\actions.json",
+      "action_manifest_path": "C:\\Users\\Betul\\Documents\\GitHub\\WorldPlay_VR\\Assets\\StreamingAssets\\SteamVR\\actions.json",
       "strings": {
         "en_us": {
           "name": "World-Play-VR [Testing]"
