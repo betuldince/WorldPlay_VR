@@ -23,6 +23,7 @@ public class gameParameters //MessageBase
     /// <summary>
     /// The count of the rounds. 
     /// </summary>
+
     public int count;
     public string respawnTime;
     /// <summary>
@@ -146,6 +147,8 @@ public class clientController : MonoBehaviour {
     bool calibrationSaved = false;
 
     private gameParameters msg;
+    private ParameterSelection parameterSelection;
+
     /// <summary>
     /// We destroy the current instance if we find a clientController already running. We need this to 
     /// prevent duplicates clientControllers being created when we restart the game as the old one is a 
@@ -175,6 +178,7 @@ public class clientController : MonoBehaviour {
         //string ip = LocalIPAddress();
         //Debug.Log("The ip is " + ip);
         */
+        parameterSelection = FindObjectOfType<ParameterSelection>();
         startGame();
     }
 
@@ -248,7 +252,7 @@ public class clientController : MonoBehaviour {
 
         // set gameParameters & gameParametersContainer manually
 
-         msg = new gameParameters();
+        msg = new gameParameters();
         msg.count = 4;
         msg.input = new string[4];
         msg.SpawnInterval = new int[4];
@@ -262,64 +266,18 @@ public class clientController : MonoBehaviour {
 
         for (int i = 0; i < 4; i++)
         {
-            ///Calibration round details
-            if (i == 0)
-            {
-                msg.SpawnInterval[i] = 300;
-                msg.input[i] = "calibration";
-                msg.AlphabetsFaceUser[i] = true;
-                msg.spin[i] = false;
-                msg.repeatSolution[i] = false;
-                msg.Difficulty[i] = 1;
-                msg.No_of_blanks[i] = 5;
-                msg.No_of_obstacles[i] = 0;
-                msg.FlyingSpeed = 50;
-                msg.RotationSpeed = 50;
+  
+                msg.SpawnInterval[i] = parameterSelection.SpawnInterval[i];
+                msg.input[i] = parameterSelection.input[i];
+                msg.AlphabetsFaceUser[i] = parameterSelection.AlphabetsFaceUser[i];
+                msg.spin[i] = parameterSelection.spin[i];
+                msg.repeatSolution[i] =parameterSelection.repeatSolution[i];
+                msg.Difficulty[i] = parameterSelection.Difficulty[i];
+                msg.No_of_blanks[i] = parameterSelection.No_of_blanks[i];
+                msg.FlyingSpeed = parameterSelection.FlyingSpeed;
+                msg.RotationSpeed = parameterSelection.RotationSpeed;
                
-            }
-            else if(i ==1)
-            {
-                msg.SpawnInterval[i] = 15; //should be get from the remote
-                msg.input[i] = "several";
-                msg.AlphabetsFaceUser[i] = true;
-                msg.spin[i] = true;
-                msg.repeatSolution[i] =false;
-                msg.Difficulty[i] = 1;
-                msg.No_of_blanks[i] = 2;
-                msg.No_of_obstacles[i] = 2;
-                msg.FlyingSpeed = 50;
-                msg.RotationSpeed = 50;
-                
-            }
-            else if (i == 2)
-            {
-                msg.SpawnInterval[i] = 15; //should be get from the remote
-                msg.input[i] = "soccer"; 
-                msg.AlphabetsFaceUser[i] = true;
-                msg.spin[i] = true;
-                msg.repeatSolution[i] = false;
-                msg.Difficulty[i] = 1;
-                msg.No_of_blanks[i] = 2;
-                msg.No_of_obstacles[i] = 2;
-                msg.FlyingSpeed = 50;
-                msg.RotationSpeed = 50;
-                
-            }
-            else if (i == 3)
-            {
-                msg.SpawnInterval[i] = 15; //should be get from the remote
-                msg.input[i] = "bird"; 
-                msg.AlphabetsFaceUser[i] = true;
-                msg.spin[i] = true;
-                msg.repeatSolution[i] = false;
-                msg.Difficulty[i] = 1;
-                msg.No_of_blanks[i] = 2;
-                msg.No_of_obstacles[i] = 2;
-                msg.FlyingSpeed = 50;
-                msg.RotationSpeed = 50;
-                
-            }
-
+ 
         }
 
 

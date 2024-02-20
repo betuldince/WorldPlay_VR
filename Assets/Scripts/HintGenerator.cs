@@ -24,7 +24,7 @@ public class HintGenerator : MonoBehaviour
     int handler = -1;
 
    public GameObject A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q, R, S, T, U, V, W, X, Y, Z;
-
+    ParameterSelection parameterSelection;
     void SetContainerPhysics()
     {
         Debug.Log("SetContainerPhysics");
@@ -52,21 +52,26 @@ public class HintGenerator : MonoBehaviour
     }
     public void createHint()
     {
-
         string dump = "";
+        if (gameStateContainer.state>=0)
+        {
+            dump = parameterSelection.inputHint[gameStateContainer.state];
+        }
+         
+        /*
         if (gameStateContainer.state == 0)
         {
-            dump = "calibration";
+            dump = parameterSelection.inputHint[0];
 
         }
         else if (gameStateContainer.state == 1)
         {
-            dump = "Adverbs of quantity";
+            dump = parameterSelection.inputHint[0];
 
         }
         else if (gameStateContainer.state == 2)
         {
-            dump = "game";
+            dump = parameterSelection.inputHint[0];
 
         }
         else if (gameStateContainer.state == 3)
@@ -74,7 +79,7 @@ public class HintGenerator : MonoBehaviour
             dump = "animal";
 
         }
-
+        */
         //hintInput = gameParametersContainer.gameParam.inputForHint.ToUpper(); // i changed this
         hintInput = dump.ToUpper();
         Debug.Log("Hint: " + hintInput);
@@ -82,6 +87,10 @@ public class HintGenerator : MonoBehaviour
         if (gameParametersContainer.gameParam.calibration == 0 && gameStateContainer.state == 1)
             SetContainerPhysics();
         CreateContainers();
+    }
+    public void Start()
+    {
+        parameterSelection = FindObjectOfType<ParameterSelection>();
     }
     public void Update()
     {
