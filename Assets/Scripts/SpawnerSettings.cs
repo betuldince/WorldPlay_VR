@@ -222,6 +222,7 @@ public class SpawnerSettings : MonoBehaviour
     void Start()
     {
         
+        
         if (Application.isEditor && !Application.isPlaying)
         {
             //Placeholder
@@ -348,6 +349,8 @@ public class SpawnerSettings : MonoBehaviour
             {
                 GameObject.Destroy(child.gameObject);
             }
+
+
             
             ///Start of the acutal spawn code.
             if (gameObjects.Count > 0)
@@ -367,7 +370,9 @@ public class SpawnerSettings : MonoBehaviour
                                 spawnPos.y += y_variation;
                                 spawnPos.y += gameObjects[randGOindex].GetComponent<Renderer>().bounds.size.y / 2;
                                 GameObject spawnedGO = Instantiate(gameObjects[randGOindex], spawnPos, Quaternion.identity);
+                                
                                 spawnedGO.transform.parent = transform;
+                                spawnedGO.AddComponent<SolutionLetterWriter>();
                                 Rigidbody rb = spawnedGO.GetComponent<Rigidbody>();
                                 if (rb)
                                     rb.useGravity = gravity;
@@ -464,6 +469,21 @@ public class SpawnerSettings : MonoBehaviour
     /// </summary>
     void Update()
     {
+         
+
+        GameObject[] letters = GameObject.FindGameObjectsWithTag("InteractionObject");
+        char c = '(';
+        
+        foreach (GameObject g in letters)
+        {
+            int rand = Random.Range(1, 1001);
+            if ( c.CompareTo( g.name[1])==0  )
+            {
+                g.name = g.name[0] + "" + rand;
+            }
+        }
+
+
         ///For displaying in editor, no gameplay code in here.       
         if (Application.isEditor && !Application.isPlaying)
         {
@@ -766,6 +786,10 @@ public class SpawnerSettings : MonoBehaviour
 
         spawnPos.y += gameObjects[gameObjectIndex].GetComponent<Renderer>().bounds.size.y / 2;
         GameObject spawnedGO = Instantiate(gameObjects[gameObjectIndex], spawnPos, Quaternion.identity);
+        spawnedGO.AddComponent<SolutionLetterWriter>();
+
+
+
         spawnedGO.transform.parent = transform;
 
         if (alphabetsFaceUsersEye)

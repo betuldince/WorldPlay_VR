@@ -28,12 +28,16 @@ public class PoseInformationWriter : MonoBehaviour
         string header = "";
         if (spawner.transform.childCount > 0 && writeHeader)
         {
+            if (spawner.transform.GetChild(0).name[1].CompareTo('(')==0 )
+            {
+                return;
+            }
             letterCount = spawner.transform.childCount;
             string[] nameLetter = new string[letterCount];
             int i = 0;
             foreach (Transform child in spawner.transform)
             {
-                nameLetter[i] = child.name.Substring(0, 1);
+                nameLetter[i] = child.name;
                 i++;
             }
            
@@ -50,6 +54,7 @@ public class PoseInformationWriter : MonoBehaviour
                 header += ',';
             }
             //header += nameLetter[letterCount - 1];
+            //tw.WriteLine()
           tw.WriteLine("Position_HeadSet_x,Position_HeadSet_y,Position_HeadSet_z,Position_Right_x,Position_Right_y,Position_Right_z,Position_Left_x,Position_Left_y," +"Position_Left_z"+","+header);
             writeHeader = false;
         }else if(spawner.transform.childCount == 0)
